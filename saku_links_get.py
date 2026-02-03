@@ -76,4 +76,6 @@ def main() :
         print(base_url)
 
 
-main()
+
+if __name__ == "__main__":
+    main()
