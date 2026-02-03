@@ -13,7 +13,7 @@ def play():
     
 
     mpv = subprocess.Popen(
-        ["mpv","--title='Sakuga Clip' ","--prefetch-playlist=yes" ,f"--geometry={width}x{height}", f"--playlist={playlist}"],
+        ["mpv","--title=SakugaClip","--prefetch-playlist=yes" ,f"--geometry={width}x{height}", f"--playlist={playlist}"],
         stdout=subprocess.DEVNULL,  
         stderr=subprocess.DEVNULL 
         )
