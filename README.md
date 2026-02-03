@@ -9,7 +9,7 @@ pip install beautifulsoup4
 pip install requests
 ```
 
-## get git 
+## get Git 
 ```
 https://gitforwindows.org/
 ```
