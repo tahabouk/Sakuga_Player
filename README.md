@@ -4,6 +4,11 @@
 for people who don't know anything at all , follow the instructions 
 
 ## set up python dependencies 
+
+## get git 
+```
+https://gitforwindows.org/
+```
 ```
 pip install beautifulsoup4
 pip install requests
