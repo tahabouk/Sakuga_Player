@@ -21,5 +21,12 @@ go to the link given and download the first one
 https://github.com/zhongfly/mpv-winbuild/releases
 ```
 
+## Installation
+```
+git clone https://github.com/tahabouk/Sakuga_Player
+```
 
-
+go to the repo then execute 
+```
+python saku.py
+```
