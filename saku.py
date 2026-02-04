@@ -4,9 +4,14 @@ import time
 import json
 import random
 
+file = "info.jsonl"
 
-def play():
-    global mpv
+playlist = "playlist.txt"
+
+playlist_size = 250 
+
+
+def play(playlist):
 
     width = 854
     height =480
@@ -21,15 +26,8 @@ def play():
 
 
 def main():
-    global playlist
-
-    file = "info.jsonl"
-
-    playlist = "playlist.txt"
 
     data = []
-
-    size = 250
 
     with open(file , "r") as f :
 
@@ -39,7 +37,7 @@ def main():
 
     with open(playlist,"w") as f :
 
-        samples = random.sample(data,size)
+        samples = random.sample(data,playlist_size)
         
 
         for sample in samples :
@@ -48,12 +46,9 @@ def main():
 
             f.write(link + "\n")
 
-    play()
+    play(playlist)
 
 
 if __name__ == "__main__":
-    try :
-        main()
-    except :
-        mpv.terminate()
+    main()
 
