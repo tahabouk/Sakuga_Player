@@ -2,31 +2,28 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
+file = "info.jsonl"
 
-def read_write(gharad,file,info=None):
+# Returns a list of the links that are in the file
+def available_links():
 
-    if gharad == "write" :
+    ava_links = []
 
-        with open(file , "a") as f :
-            f.write(json.dumps(info) + "\n")
+    with open (file , "r") as f :
 
-    elif gharad == "read" :
+        for line in f :
 
-        with open(file , "r") as f :
+            data = json.loads(line.strip())
 
-            for line in f :
-
-                data = json.loads(line.strip())
-
-                print(data)
+            ava_links.append(data["link"])
 
 
+    return ava_links
 
-
-
+# Parses the xml response and writes the best links based on popularity 
 def parse(rep):
 
-    file = "info.jsonl"
+    ava_links = available_links()
 
     hit = 0
 
@@ -46,7 +43,7 @@ def parse(rep):
 
         image = post.get("preview_url")
 
-        if score > 300 and size > 5000000 and ".mp4" in url:
+        if score > 300 and size > 5000000 and ".mp4" in url and url not in ava_links  :
 
             hit +=1
 
@@ -58,12 +55,8 @@ def parse(rep):
 
     print(f"{hit} good videos")
 
-
-
-
+# You could run it to add only new links to the file
 def main() :
-
-
 
     for page in range(1,1764) :
 
@@ -74,7 +67,6 @@ def main() :
         liest = parse(rep)
 
         print(base_url)
-
 
 
 if __name__ == "__main__":
